@@ -1,0 +1,194 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    height:100vh;
+    background:black;
+}
+
+#bgVideo{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(1px);
+    z-index:-1;
+}
+
+#tsparticles{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+
+.container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+    animation:fade 1.5s ease;
+    z-index:2;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translate(-50%,-40%);
+    }
+
+    to{
+        opacity:1;
+        transform:translate(-50%,-50%);
+    }
+}
+
+.avatar{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    border:4px solid white;
+    object-fit:cover;
+    box-shadow:0 0 30px rgba(255,255,255,.4);
+}
+
+.nome{
+    font-size:55px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.bio{
+    font-size:22px;
+    margin-top:10px;
+}
+
+.local{
+    margin-top:15px;
+    opacity:.8;
+}
+
+.card{
+    width:360px;
+    margin:30px auto;
+    padding:20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.2);
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.card img{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+}
+
+.card-info{
+    text-align:left;
+}
+
+.card-info h3{
+    font-size:24px;
+}
+
+.social{
+    margin-top:15px;
+}
+
+.social a{
+    font-size:42px;
+    color:white;
+    margin:0 12px;
+    transition:.3s;
+}
+
+.social a:hover{
+    transform:scale(1.25);
+    text-shadow:0 0 15px white;
+}
+
+.views{
+    margin-top:25px;
+    font-size:18px;
+    opacity:.8;
+}
+
+.volume-box{
+    position:fixed;
+    top:25px;
+    left:25px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    z-index:999;
+}
+
+#volumeIcon{
+    color:white;
+    font-size:32px;
+    cursor:pointer;
+}
+
+#volumeSlider{
+
+    width:0;
+    opacity:0;
+
+    height:10px;
+
+    appearance:none;
+    -webkit-appearance:none;
+
+    border-radius:20px;
+
+    transition:all .3s ease;
+
+    background:linear-gradient(
+        to right,
+        #fff 50%,
+        rgba(255,255,255,.35) 50%
+    );
+}
+
+/* Mostra ao passar o mouse */
+
+.volume-box:hover #volumeSlider{
+    width:115px;
+    opacity:1;
+}
+
+/* Esconde a bolinha */
+
+#volumeSlider::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    width:0;
+    height:0;
+}
+
+#volumeSlider::-moz-range-thumb{
+    width:0;
+    height:0;
+    border:none;
+}
